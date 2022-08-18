@@ -26,12 +26,12 @@ namespace DataStructures
             //insert by left 
             if (item.CompareTo(node.Item) < 0)
             {
-                node.Left = _insert(item, node); 
+                node.Left = _insert(item, node.Left); 
             }
             //insert by right 
             else if (item.CompareTo(node.Item) > 0)
             {
-                node.Right = _insert(item, node); 
+                node.Right = _insert(item, node.Right); 
             }
             return node;
         }
@@ -57,6 +57,19 @@ namespace DataStructures
             else parent.Right = left;
 
             return left; 
+        }
+
+        public void Preorder()
+        {
+            if (this._root != null) _preorder(_root);
+        }
+
+        private void _preorder (AVLNode<T> node)
+        {
+            if (node.Left != null) _preorder(node.Left);
+            Console.WriteLine(node.Item.ToString());
+            if (node.Right != null) _preorder(node.Right); 
+            
         }
     }
 }

@@ -29,7 +29,7 @@ namespace DataStructures
             this._parent = parent; 
         }
 
-        public T Item { get => this.Item; }
+        public T Item { get => this._item; }
 
         public int Height { 
             get 

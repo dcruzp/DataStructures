@@ -6,7 +6,14 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            AVL<int> _avl = new AVL<int>();
+            _avl.Insert(2);
+            _avl.Insert(3);
+            _avl.Insert(4);
+            _avl.Insert(1);
+            _avl.Insert(0);
+
+            _avl.Preorder(); 
         }
     }
 }
