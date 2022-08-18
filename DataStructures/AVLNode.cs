@@ -9,6 +9,7 @@ namespace DataStructures
         T _item { get; set; }
         AVLNode<T> _left { get; set; } = null;
         AVLNode<T> _right { get; set; } = null;
+        AVLNode<T> _parent { get; set; } = null; 
         int _heigth { get; set; } = 0;
 
         public AVLNode(T item)
@@ -17,6 +18,15 @@ namespace DataStructures
             this._left = null;
             this._right = null;
             this._heigth = 0; 
+        }
+
+        public AVLNode(T item , AVLNode<T> parent )
+        {
+            this._item = item;
+            this._left = null;
+            this._right = null;
+            this._heigth = 0;
+            this._parent = parent; 
         }
 
         public T Item { get => this.Item; }
