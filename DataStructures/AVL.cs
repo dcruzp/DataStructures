@@ -13,25 +13,32 @@ namespace DataStructures
             _root = null; 
         }
 
-        public AVLNode<T> Insert (T item , AVLNode<T> node)
+        public void Insert (T item)
         {
-            if (node == null) node = new AVLNode<T>(item); 
+            _root = _insert(item, _root);
+
+        }
+
+        private AVLNode<T> _insert (T item , AVLNode<T> node)
+        {
+            if (node == null) return new AVLNode<T>(item); 
             
             //insert by left 
             if (item.CompareTo(node.Item) < 0)
             {
-
+                node.Left = _insert(item, node); 
             }
             //insert by right 
             else if (item.CompareTo(node.Item) > 0)
             {
-
+                node.Right = _insert(item, node); 
             }
-
             return node;
         }
 
-        public AVLNode<T> LeftRotation (AVLNode<T> node , AVLNode<T> parent)
+       
+
+        private AVLNode<T> LeftRotation (AVLNode<T> node , AVLNode<T> parent)
         {
             var right = node.Right;
             node.Right = right.Left;
@@ -40,6 +47,16 @@ namespace DataStructures
 
             return right;
             
+        }
+
+        private  AVLNode<T> RightRotation (AVLNode<T> node, AVLNode<T> parent)
+        {
+            var left = node.Left;
+            node.Left = left.Right;
+            if (parent.Left == node) parent.Left = left;
+            else parent.Right = left;
+
+            return left; 
         }
     }
 }
