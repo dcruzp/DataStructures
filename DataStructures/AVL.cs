@@ -30,5 +30,16 @@ namespace DataStructures
 
             return node;
         }
+
+        public AVLNode<T> LeftRotation (AVLNode<T> node , AVLNode<T> parent)
+        {
+            var right = node.Right;
+            node.Right = right.Left;
+            if (parent.Left == node) parent.Left = right;
+            else parent.Right = right;
+
+            return right;
+            
+        }
     }
 }

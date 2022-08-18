@@ -29,5 +29,16 @@ namespace DataStructures
                 return height_right - height_left;               
             } 
         }
+
+        public AVLNode<T> Right 
+        { 
+            get => this._right; 
+            set => this._right = value; 
+        }
+        public AVLNode<T> Left 
+        {
+            get => this._left;
+            set => this._right = value;
+        }
     }
 }
