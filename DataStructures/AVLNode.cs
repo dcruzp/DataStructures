@@ -50,5 +50,11 @@ namespace DataStructures
             get => this._left;
             set => this._right = value;
         }
+
+        public AVLNode<T> Parent
+        {
+            get => this._parent;
+            set => this._parent = value; 
+        }
     }
 }
