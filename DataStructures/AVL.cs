@@ -16,7 +16,6 @@ namespace DataStructures
         public void Insert (T item)
         {
             _root = _insert(item, _root);
-
         }
 
         private AVLNode<T> _insert (T item , AVLNode<T> node)
@@ -64,12 +63,35 @@ namespace DataStructures
             if (this._root != null) _preorder(_root);
         }
 
+        public void Posorder()
+        {
+            if (this._root != null) _posorder(_root); 
+        }
+
+        public void Inorder()
+        {
+            if (this._root != null) _inorder(_root);
+        }
+
         private void _preorder (AVLNode<T> node)
         {
             if (node.Left != null) _preorder(node.Left);
             Console.WriteLine(node.Item.ToString());
             if (node.Right != null) _preorder(node.Right); 
             
+        }
+        private void _posorder (AVLNode<T> node)
+        {
+            if (node.Right != null) _posorder(node.Right);
+            Console.WriteLine(node.Item.ToString());
+            if (node.Left != null) _posorder(node.Left); 
+        }
+
+        private void _inorder (AVLNode<T> node )
+        {
+            Console.WriteLine(node.Item.ToString());
+            if (node.Left != null) _inorder(node.Left);
+            if (node.Right != null) _inorder(node.Right); 
         }
     }
 }

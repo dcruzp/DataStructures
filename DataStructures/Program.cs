@@ -13,7 +13,11 @@ namespace DataStructures
             _avl.Insert(1);
             _avl.Insert(0);
 
-            _avl.Preorder(); 
+            _avl.Preorder();
+
+            Console.WriteLine("------------------------------------");
+
+            _avl.Inorder();
         }
     }
 }

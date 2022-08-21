@@ -48,7 +48,7 @@ namespace DataStructures
         public AVLNode<T> Left 
         {
             get => this._left;
-            set => this._right = value;
+            set => this._left = value;
         }
 
         public AVLNode<T> Parent
